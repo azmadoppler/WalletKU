@@ -45,7 +45,7 @@ public class EntryAdapter extends ArrayAdapter<Entry> {
         }
         value.setText("Amount : " + entry.getValue() + "");
 
-        return  v;
+        return   v;
     }
 
 }
