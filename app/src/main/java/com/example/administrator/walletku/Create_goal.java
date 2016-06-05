@@ -1,6 +1,8 @@
 package com.example.administrator.walletku;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +13,7 @@ import com.example.administrator.walletku.Models.Goal;
 
 public class Create_goal extends AppCompatActivity {
 
+    Create_goal temp ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +26,7 @@ public class Create_goal extends AppCompatActivity {
     private EditText goalDesc;
     public void init()
     {
+        temp = this;
         goalValue = (EditText)findViewById(R.id.goal_value);
         goalDead = (EditText)findViewById(R.id.goal_deadline);
         goalDesc = (EditText) findViewById(R.id.goal_desc);
@@ -37,6 +41,13 @@ public class Create_goal extends AppCompatActivity {
                 goal.setDesc(goalDesc.getText().toString());
                 goal.setDate(goalDead.getText().toString());
                 goal.setValue(Integer.parseInt(goalValue.getText().toString()));
+
+                //write file
+                SharedPreferences sharedPref = temp.getPreferences(Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putString("GoalValue" , String.valueOf(goal.getValue()));
+                editor.commit();
+
                 Intent intent = new Intent(Create_goal.this , Menu.class);
                 startActivity(intent);
             }

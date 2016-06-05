@@ -1,6 +1,8 @@
 package com.example.administrator.walletku;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,7 +24,16 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         init();
+        readGoalFromFile();
     }
+
+    public void readGoalFromFile()
+    {
+        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        int goalTarget = Integer.parseInt(sharedPref.getString("GoalValue" , "0"));
+        Goal.getInstance().setValue(goalTarget);
+    }
+
 
     public void init()
     {
