@@ -13,7 +13,6 @@ public class Log {
 
     private Log()
     {
-        total = 0;
         entries = new ArrayList<Entry>();
     }
 

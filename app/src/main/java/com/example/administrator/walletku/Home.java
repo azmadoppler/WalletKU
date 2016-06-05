@@ -67,7 +67,7 @@ public class Home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Entry newEntry = null;
-                newEntry = new Entry( "Instanct Mode" , Integer.parseInt(value.getText().toString()) , true );
+                newEntry = new Entry( "Instant Mode" , Integer.parseInt(value.getText().toString()) , true );
                 Log.getInstance().addEntry(newEntry);
                 Log.getInstance().calculateTotal();
                 finish();
@@ -79,7 +79,7 @@ public class Home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Entry newEntry = null;
-                newEntry = new Entry( "Instanct Mode" , Integer.parseInt(value.getText().toString()) , false );
+                newEntry = new Entry("Instant Mode" , Integer.parseInt(value.getText().toString()) , false );
                 Log.getInstance().addEntry(newEntry);
                 Log.getInstance().calculateTotal();
                 finish();
